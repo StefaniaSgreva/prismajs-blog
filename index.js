@@ -102,3 +102,32 @@ function getPostsByContent(keyword) {
   });
 }
 
+// Utilizzo CLI
+const op = process.argv[2];
+
+function handleResult(result) {
+  console.log(JSON.stringify(result, null, 2));
+  prisma.$disconnect();
+}
+
+function handleError(error) {
+  console.error('Errore:', error.message);
+  prisma.$disconnect();
+}
+
+if (op === 'pubblicati') {
+  getPublishedPosts().then(handleResult).catch(handleError);
+} else if (op === 'contiene') {
+  const keyword = process.argv[3];
+  if (!keyword) {
+    console.error('Errore: devi specificare una stringa di ricerca.');
+    prisma.$disconnect();
+  } else {
+    getPostsByContent(keyword).then(handleResult).catch(handleError);
+  }
+} else if (op === 'tutti') {
+  getAllPosts().then(handleResult).catch(handleError);
+} else {
+  console.log('Comandi disponibili: pubblicati, contiene <stringa>, tutti');
+  prisma.$disconnect();
+}
