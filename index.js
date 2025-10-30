@@ -80,3 +80,12 @@ deletePost("titolo-nuovo-post")
 .catch(error => {
   console.error("Errore nell'eliminazione del post:", error);
 });
+
+// Funzione per restituire solo i Post pubblicati
+function getPublishedPosts() {
+  return prisma.post.findMany({
+    where: {
+      published: true,
+    },
+  });
+}
