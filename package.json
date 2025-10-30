@@ -1,0 +1,26 @@
+{
+  "name": "prismajs-blog",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/StefaniaSgreva/prismajs-blog#readme",
+  "bugs": {
+    "url": "https://github.com/StefaniaSgreva/prismajs-blog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StefaniaSgreva/prismajs-blog.git"
+  },
+  "license": "ISC",
+  "author": "Stefania Sgreva",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prisma": "^6.18.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0"
+  }
+}
