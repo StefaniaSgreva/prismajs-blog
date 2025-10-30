@@ -89,3 +89,16 @@ function getPublishedPosts() {
     },
   });
 }
+
+// Funzione per restituire Post che contengono una Stringa nel contenuto
+function getPostsByContent(keyword) {
+  return prisma.post.findMany({
+    where: {
+      content: {
+        contains: keyword,
+        mode: 'insensitive' // opzionale, per ricerca case-insensitive
+      },
+    },
+  });
+}
+
